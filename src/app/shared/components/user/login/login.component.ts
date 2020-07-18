@@ -1,28 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
+
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class AppComponent {
-  title = 'projectNuquiweb';
+export class LoginComponent implements OnInit {
 
   constructor(public afAuth: AngularFireAuth) {
     this.afAuth.user.subscribe((usuario) => {
       console.log(usuario);
     });
+   }
+
+  ngOnInit(): void {
 
   }
 
-  // tslint:disable-next-line: typedef
   login() {
     this.afAuth.auth.signInWithEmailAndPassword('mauricio.velez.osorno.14@gmail.com', 'anamauricio14');
   }
-  // tslint:disable-next-line: typedef
   logout() {
     this.afAuth.auth.signOut();
   }
+  
 
 }
+
+
+
+// tslint:disable-next-line: typedef
+
+// tslint:disable-next-line: typedef
