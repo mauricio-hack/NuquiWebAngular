@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "projectNuquiweb"
+    }
+  },
+  "defaultProject": "projectNuquiweb",
+  "cli": {
+    "analytics": false
+  }
 }
