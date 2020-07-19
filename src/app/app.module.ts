@@ -12,6 +12,7 @@ import { HomeComponent } from './shared/components/home/home.component';
 import { LoginComponent } from './shared/components/user/login/login.component';
 import { ProfileComponent } from './shared/components/user/profile/profile.component';
 import { RegisterComponent } from './shared/components/user/register/register.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RegisterComponent } from './shared/components/user/register/register.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    ReactiveFormsModule
   ],
   providers: [
     AngularFireAuth

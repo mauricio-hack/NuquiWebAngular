@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,28 +8,17 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public afAuth: AngularFireAuth) {
-    this.afAuth.user.subscribe((usuario) => {
-      console.log(usuario);
-    });
-   }
+  formulariologin: FormGroup
+
+  constructor(private creadorFormulario: FormBuilder) { }
 
   ngOnInit(): void {
-
+    this.formulariologin = this.creadorFormulario.group({
+      email: ['', Validators.compose([
+        Validators.required, Validators.email
+      ])],
+      password: [ '', Validators.required]
+    });
   }
-
-  login() {
-    this.afAuth.auth.signInWithEmailAndPassword('mauricio.velez.osorno.14@gmail.com', 'anamauricio14');
-  }
-  logout() {
-    this.afAuth.auth.signOut();
-  }
-  
 
 }
-
-
-
-// tslint:disable-next-line: typedef
-
-// tslint:disable-next-line: typedef

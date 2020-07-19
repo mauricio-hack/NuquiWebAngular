@@ -1,9 +1,25 @@
 
-<div *ngIf="afAuth.authState | async as user; else showLogin">
-    <h1>Hello {{ user.email }}!</h1>
-    <button (click)="logout()">Logout</button>
-  </div>
-  <ng-template #showLogin>
-    <p>Please login.</p>
-    <button (click)="login()">Login with Google</button>
-  </ng-template>
+    <div id="logreg-forms">
+        <form [formGroup]="formulariologin">
+            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">Nuquiweb</h1>
+
+            <div class="social-login">
+                <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i>Iniciar  usando Facebook</span> </button>
+                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i>Inicia usando Google+</span> </button>
+            </div>
+
+            <p style="text-align:center"> Iniciar Sesion </p>
+            
+            <input type="email" id="inputEmail" class="form-control" formControlName="email" placeholder="Ingresa email" required="" autofocus="">
+
+            <input type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="Imgresa Contraseña" required=""> 
+
+            <button [disabled]="!formulariologin.valid" class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i>Ingresar</button>
+            <a href="#" id="forgot_pswd">¿ Recordar contraseña ?</a>
+            <hr>
+
+            <button routerLink='register'  class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i>Registrarse nueva cuenta</button>
+            </form>
+        </div>
+ 
+

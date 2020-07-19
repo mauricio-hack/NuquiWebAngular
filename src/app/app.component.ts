@@ -8,13 +8,17 @@ import * as firebase from 'firebase/app';
 })
 export class AppComponent {
   title = 'projectNuquiweb';
+  usuario: firebase.User;
+  cargando:boolean = true;
 
   constructor(public afAuth: AngularFireAuth) {
     this.afAuth.user.subscribe((usuario) => {
-      console.log(usuario);
+      setTimeout(() => {
+        this.cargando = false;
+        this.usuario = usuario;
+      }, 2000);
     });
-
-  }
+   }
 
   // tslint:disable-next-line: typedef
   login() {
