@@ -14,7 +14,7 @@
 
             <input type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="Imgresa Contraseña" required=""> 
 
-            <button [disabled]="!formulariologin.valid" class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i>Ingresar</button>
+            <button (click)="LogIn()" [disabled]="!formulariologin.valid" class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i>Ingresar</button>
             <a href="#" id="forgot_pswd">¿ Recordar contraseña ?</a>
             <hr>
 
