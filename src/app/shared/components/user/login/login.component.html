@@ -10,9 +10,15 @@
 
             <p style="text-align:center"> Iniciar Sesion </p>
             
-            <input type="email" id="inputEmail" class="form-control" formControlName="email" placeholder="Ingresa email" required="" autofocus="">
+            <div>
+                <input type="email" id="inputEmail" class="form-control" formControlName="email" placeholder="Ingresa email" required="" autofocus="">
+            </div>
+            <div>
+                <input (key.enter)="LogIn()" type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="Imgrese Contraseña" required=""> 
+            </div>
+            
 
-            <input type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="Imgresa Contraseña" required=""> 
+            
 
             <button (click)="LogIn()" [disabled]="!formulariologin.valid" class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i>Ingresar</button>
             <a href="#" id="forgot_pswd">¿ Recordar contraseña ?</a>

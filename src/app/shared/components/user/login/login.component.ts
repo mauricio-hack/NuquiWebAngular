@@ -23,9 +23,14 @@ export class LoginComponent implements OnInit {
   }
  
   LogIn(){
-    this.afAuth.auth.signInWithEmailAndPassword(this.formulariologin.value.email, this.formulariologin.value.password).then((usuario) => {
-      console.log(usuario);
-    });
+    if (this.formulariologin.valid){
+      this.afAuth.auth.signInWithEmailAndPassword(this.formulariologin.value.email, this.formulariologin.value.password).then((usuario) => {
+        console.log(usuario);
+      });
+    }else{
+      
+    }
+
   }
 
 }
