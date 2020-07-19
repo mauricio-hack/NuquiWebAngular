@@ -5,27 +5,35 @@
 
             <div class="social-login">
                 <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i>Iniciar  usando Facebook</span> </button>
-                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i>Inicia usando Google+</span> </button>
+                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i>Iniciar usando Google+</span> </button>
             </div>
 
-            <p style="text-align:center"> Iniciar Sesion </p>
+            <p style="text-align:center"> Iniciar Sesión </p>
             
             <div>
                 <input type="email" id="inputEmail" class="form-control" formControlName="email" placeholder="Ingresa email" required="" autofocus="">
+                <div *ngIf="formulariologin.controls['email'].invalid && formulariologin.controls['email'].dirty" class="alert alert-danger" role="alert">
+                    <span *ngIf="formulariologin.controls['email'].errors.reqired">correo es requerido</span>
+                    <span *ngIf="formulariologin.controls['email'].errors.email">correo no es valido</span>
+                 </div>
             </div>
             <div>
-                <input (key.enter)="LogIn()" type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="Imgrese Contraseña" required=""> 
+                <input (keyup.enter)="LogIn()" type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="Ingrese Contraseña" required=""> 
+                <div *ngIf="formulariologin.controls['password'].invalid && formulariologin.controls['password'].dirty"  class="alert alert-danger" role="alert">
+                   <span *ngIf="formulariologin.controls['password'].errors.reqired">corrreo es requerido</span>
+                 </div>
             </div>
             
-
-            
-
             <button (click)="LogIn()" [disabled]="!formulariologin.valid" class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i>Ingresar</button>
             <a href="#" id="forgot_pswd">¿ Recordar contraseña ?</a>
             <hr>
 
-            <button routerLink='register'  class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i>Registrarse nueva cuenta</button>
-            </form>
+            <button routerLink='register'  class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i>Registrar nueva cuenta</button>
+       
+        </form>
+        <div *ngIf="!datosCorrectos" class="alert alert-warning" role="alert">
+            {{textoError}}
+            </div>
         </div>
- 
-
+     
+    
